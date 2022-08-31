@@ -1,64 +1,35 @@
-import { View, Button, Text } from "react-native";
-
-import { NavigationContainer } from "@react-navigation/native";
-
-import React from "react";
-
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
-
-function Feed() {
+import * as React from 'react';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator} from '@react-navigation/drawer';
+import { NavigationContainer} from '@react-navigation/native';
+function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Feed Sceen</Text>
+    <View style={{flex: 1,alignItems:'center',justifyContent:'center' }}>
+      <Button
+      onPress={() => navigation.navigate('Notifications')}
+      title="Go to notifications"
+      />
     </View>
-  );
-}
-function Artical() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Artical Sceen</Text>
-    </View>
-  );
-}
-function CustomDrawerContent(props) {
-  return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-      <DrawerItem label="help" onPress={() => alert("Link to help")} />
-    </DrawerContentScrollView>
-  );
-}
-const Drawer = createDrawerNavigator();
+    );
+  }
+  function NotificationsScreen({ navigation }) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button onPress={() => navigation.goBack()} title="Go back home" />
 
-function MyDrawer() {
-  return (
-    <Drawer.Navigator
-      useLegacyImplementation
-      drawerContent={(props) => <CustomDrawerContent {...props} />}
-      screenOptions={{
-        drawerStyle: {
-          backgroundColor: "skyblue",
-          width: 240,
-        },
-      }}
-    >
-      <Drawer.Screen name="Feed" component={Feed} />
-      <Drawer.Screen name="Artical" component={Artical} />
-    </Drawer.Navigator>
-  );
-}
-
-const App = () => {
-  return (
-    <NavigationContainer>
-      <MyDrawer />
-    </NavigationContainer>
-  );
-};
-
-export default App;
+      </View>
+      );
+    }
+    const Drawer = createDrawerNavigator();
+    export default function App() {
+      return (
+        <NavigationContainer>
+            <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screenname name = "Home" component={HomeScreen} />
+        <Drawer.Screenname name ="Notifications" component={NotificationsScreen} />
+        </Drawer.Navigator>
+        </NavigationContainer>
+      
+      
+        );
+      }
