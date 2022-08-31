@@ -1,17 +1,20 @@
-import { View, Text } from "react-native";
-import React from "react";
-import User from "./component/User";
-import Logo from "./component/Logo";
-// import Count from "./components/Count";
-import InputText from "./components/InputText";
-import UserNameandPassWord from "./components/UserNameandPassWord";
-import TouchablePractice from "./components/TouchablePractice";
-const App = () => {
-  return (
-    <View>
-      <TouchablePractice />
-    </View>
-  );
-};
+import { StyleSheet, Text, View } from 'react-native'
+import React, { Component } from 'react'
+import { Button } from 'react-native-web'
 
-export default App;
+const style =()=> {
+  return(
+    <view style={styles.container}>
+      <Text>
+        Home Screen
+      </Text>
+      <Button
+      title='เกี่ยวกับเรา'
+      onPress={()=>navigator.navigate('About',{
+        email:'reactnative.tni.ac.th'
+      })}
+    </view>
+  )
+}
+
+export default FirstPage
