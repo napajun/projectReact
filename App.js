@@ -21,8 +21,6 @@ import {
 } from "@react-navigation/drawer";
 import React from "react";
 
-
-
 const MyTheme = {
   ...DefaultTheme,
   colors: {
@@ -53,12 +51,10 @@ const MyTheme = {
 function CustomDrawerContent(Props) {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      
-        <Image
-          source={require('C:/nvProject/assets/react_logo.png')}
-          style={styles.sideMenuProfileIcon}
-        />
-      
+      <Image
+        source={require("C:/Users/labinstall/Desktop/201310444/reactProject-master/assets/react_logo.png")}
+        style={styles.sideMenuProfileIcon}
+      />
 
       <DrawerContentScrollView {...Props}>
         <DrawerItemList {...Props} />
