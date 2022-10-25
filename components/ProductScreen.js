@@ -18,7 +18,7 @@ const ProductScreen =()=> {
    })
 
    return(
-    </View>
+    <View>
     <Text>สินค้า</Text>
     </View>
    );
